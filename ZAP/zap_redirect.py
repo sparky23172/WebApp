@@ -39,7 +39,7 @@ def zap(url, email, password, timing):
     """ Takes a URL with protocol
 
     """
-    logging.info("Starting ZAP interept")
+    logging.info("Starting ZAP intercept")
 
     logging.info("Sleeping to get ZAP up")
     output = subprocess.Popen(["zaproxy"])
@@ -80,9 +80,10 @@ def zap(url, email, password, timing):
         options = webdriver.FirefoxOptions()
         options.set_preference("javascript.enabled", True)
 
-        time.sleep(5)
-
         driver.get(url)
+        
+        time.sleep(5)
+        
         redirect = driver.current_url
 
         # Default notes set to None so that in case nothing is found, it won't be a sad panda
